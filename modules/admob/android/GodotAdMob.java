@@ -252,6 +252,13 @@ public class GodotAdMob extends Godot.SingletonBase
 		{
 			@Override public void run()
 			{
+				if (layout == null || adView == null || adParams == null )
+				{
+					Log.i("BIT-BIONIC", "GodotAdMob.resize: nulls found, Activity is " + activity);
+					Log.i("BIT-BIONIC", "EXITING resize()");
+					return;
+				}
+
 				layout.removeView(adView); // Remove the old view
 
 				// Extract params
